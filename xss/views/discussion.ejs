@@ -9,7 +9,8 @@
       <ol>
         <% for (const comment of comments) { %>
           <li>
-            <%- comment.text %>
+            <%= comment.text %>
+            <!-- before, the tag above had a - instead of the =. WHENEVER YOU DISPLAY USER GENERATED CONTENT always use the = instead, this will escape any inputted code and display it as raw text instead. -->
           </li>
         <% } %>
       </ol>
@@ -17,6 +18,7 @@
     <section>
 
       <form action="/discussion/comment" method="POST">
+        <!-- CSRF TOKEN -->
         <div class="form-control">
           <label for="comment">My Comment</label>
           <textarea name="comment" id="comment" rows="5"></textarea>
